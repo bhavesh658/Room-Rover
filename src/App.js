@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+// import { DataBoard } from './Component/DataBoard';
+import Hero from './Component/Hero';
+// import 'bootstrap/dist/css/bootstrap.min.css'; 
+// import Navbar from './Component/Navbar';
+import { Login } from './Screen/Login';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div>
+        <Routes>
+        {/* <Route exact path='/' element={<Navbar/>}/> */}
+                <Route exact path='/' element={<Hero/>}/>
+                <Route exact path='/Login' element={<Login/>}/>
+        </Routes>
+        {/* <DataBoard/> */}
+
+      </div>
+     
+    </Router>
+  )
 }
 
 export default App;
