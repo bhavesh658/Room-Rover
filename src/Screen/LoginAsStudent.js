@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export const Login = () => {
+export const LoginAsStudent = () => {
 
   return (
      <div className="container text-align-center justify-content-center w-50    border border-danger rounded p-5 mt-5 ">
       <form  >
-
+ 
 
         <div className="mb-3">
           <label htmlFor="emailInput" className="form-label">Email</label>
@@ -20,6 +20,7 @@ export const Login = () => {
 
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/Signup" className='m-3 btn btn-danger'>I am new user</Link>
+        <Link to="/Signup" className='m-3 btn btn-primary'>Back to Home</Link>
       </form>
     </div>
   )

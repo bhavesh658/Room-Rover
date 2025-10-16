@@ -45,19 +45,15 @@ const Hero = () => {
 
               <li className="nav-item">
 
-                <Link className="nav-link active" to="/Login">Register As Student</Link>
+                <Link className="nav-link active" to="/LoginAsStudent">Register As Student</Link>
 
               </li>
 
               <li className="nav-item">
 
-                <Link className="nav-link active" to="/">Register As Owner</Link>
+                <Link className="nav-link active" to="/LoginAsOwner">Register As Owner</Link>
 
               </li>
-
-
-
-
 
             </ul>
 

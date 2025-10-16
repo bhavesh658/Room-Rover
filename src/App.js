@@ -3,12 +3,13 @@ import './App.css';
 import Hero from './Component/Hero';
 // import 'bootstrap/dist/css/bootstrap.min.css'; 
 // import Navbar from './Component/Navbar';
-import { Login } from './Screen/Login';
+import { LoginAsStudent } from './Screen/LoginAsStudent';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+import { LoginAsOwner } from './Screen/LogInOwner';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Routes>
         {/* <Route exact path='/' element={<Navbar/>}/> */}
                 <Route exact path='/' element={<Hero/>}/>
-                <Route exact path='/Login' element={<Login/>}/>
+                <Route exact path='/LoginAsStudent' element={<LoginAsStudent/>}/>
+                <Route exact path='/LoginAsOwner' element={<LoginAsOwner/>}/>
         </Routes>
         {/* <DataBoard/> */}
 
