@@ -5,7 +5,8 @@ import './Hero.css';
 
 const Hero = () => {
   const heroStyle = {
-    backgroundImage: `url(${backgroundImage})`  };
+    backgroundImage: `url(${backgroundImage})`
+  };
 
   return (
     <header className="hero-section" style={heroStyle}>
@@ -67,21 +68,23 @@ const Hero = () => {
 
         {/* Heading and Subtitle */}
         <div className="text-warning hero-content mb-4">
-          <h2>A Smart Rental Solution for Students,</h2>
+          <h1>A Smart Rental Solution for Students,</h1>
           <p className="lead">Easy Rentals, Anytime, Anywhere</p>
         </div>
 
         {/* SEARCH BAR (Matching the style from the image) */}
         <div className="search-bar-wrapper">
-          <InputGroup className="custom-search-bar shadow-lg">
+          <InputGroup
+            className="custom-search-bar shadow-lg"
+            style={{ width: '600px', margin: '20px auto' }} // Increased width and added auto margins for centering
+          >
             <Form.Control
               placeholder="Search for properties........."
               aria-label="Search for properties"
               className="search-input"
-              size="lg" // Use size="lg" to increase height
+              size="lg"
             />
             <Button variant="light" className="search-button">
-              {/* BiSearch is from react-icons/bs, but we'll use the default Bootstrap Icon class 'bi-search' */}
               <i className="bi bi-search"></i>
             </Button>
           </InputGroup>
