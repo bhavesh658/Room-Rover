@@ -20,7 +20,6 @@ export const LoginAsOwner = () => {
 
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/Signup" className='m-3 btn btn-danger'>I am new user</Link>
-         <Link to="../Hero" className='m-3 btn btn-primary'>Back to Home</Link>
       </form>
     </div>
   )

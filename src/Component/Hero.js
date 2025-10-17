@@ -5,8 +5,7 @@ import './Hero.css';
 
 const Hero = () => {
   const heroStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-  };
+    backgroundImage: `url(${backgroundImage})`  };
 
   return (
     <header className="hero-section" style={heroStyle}>

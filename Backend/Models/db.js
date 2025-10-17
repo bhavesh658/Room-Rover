@@ -1,7 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";   
+const Mongourl = process.env.MONGO_CONN;
+
 const mongoDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/Book-my-room ');
+    await mongoose.connect(Mongourl);
     console.log("✅ Connected to MongoDB");
 
   } catch (err) {
@@ -9,4 +11,4 @@ const mongoDB = async () => {
   }
 };
 
-module.exports = mongoDB;
+export default mongoDB;
