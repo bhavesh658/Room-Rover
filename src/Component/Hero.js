@@ -10,64 +10,30 @@ const Hero = () => {
 
   return (
     <header className="hero-section" style={heroStyle}>
-      <Navbar bg="transparent" variant="dark" expand="lg" className="px-5">
-        <Navbar.Brand className="me-5" style={{fontWeight: 900, fontStyle: "italic", fontSize: "1.5rem"}}><h1>BookMyRoom</h1></Navbar.Brand> {/* Changed to match image */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-
-          <div className="w-100 d-flex justify-content-evenly">
-
-            <ul className="navbar-nav w-100 d-flex justify-content-evenly fw-bold fs-5 "
-            >
-              <li className="nav-item text-lg" >
-
-                <Link className="nav-link active " aria-current="page" to="#">Home</Link>
-
-              </li>
-
-
-
-              <li className="nav-item">
-
-                <Link className="nav-link active" to="/about">About Us</Link>
-
-              </li>
-
-
-
-              <li className="nav-item">
-
-                <Link className="nav-link active" to="#">Contact</Link>
-
-              </li>
-
-              <li className="nav-item">
-
-                <Link className="nav-link active" to="/LoginAsStudent">Register</Link>
-
-              </li>
-
-              <li className="nav-item">
-
-                <Link className="nav-link active" to="/LoginAsOwner">Login</Link>
-
-              </li>
-
-            </ul>
-
-          </div>
-
-        </Navbar.Collapse>
-
-      </Navbar>
+      <Navbar  expand="lg" bg="transparent" variant="light" style={{ position: "relative", zIndex: 10 }}>
+  <Navbar.Brand className='justify-evenly ml-5 mt-2' style={{ fontWeight: 900, fontStyle: "italic", fontSize: "2rem", color: "white" }}>
+    BookMyRoom
+  </Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav justify-content-evenly" />
+  <Navbar.Collapse id="basic-navbar-nav justify-content-evenly">
+    <ul className="mt-2 navbar-nav flex w-full justify-evenly items-center font-bold text-lg fw-bold fs-4">
+      <li className="nav-item"><Link className="nav-link text-white" to="#">Home</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="">Properties</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="/about">About Us</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="#">Contact</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="/LoginAsStudent">Register</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="/LoginAsOwner">Login</Link></li>
+    </ul>
+  </Navbar.Collapse>
+</Navbar>
 
       {/* CONTENT CENTERING: h-100, d-flex, flex-column, justify-content-center */}
       <Container className="h-100 d-flex flex-column justify-content-center align-items-center text-center">
 
         {/* Heading and Subtitle */}
         <div className="text-warning hero-content mb-4">
-          <h1 className='text-#FFF16F'>A Smart Rental Solution for Students,</h1>
-          <h3 className="text-white ">Easy Rentals, Anytime, Anywhere</h3>
+          <h1 className='text-#FFF16F' style={{fontWeight: 900, fontStyle: "black", fontSize: "2.5rem"}}>A Smart Rental Solution for Students,</h1>
+          <h3 className="text-white "style={{fontWeight: 500, fontStyle: "black", fontSize: "1.5rem"}}>Easy Rentals, Anytime, Anywhere</h3>
         </div>
 
         <div className="search-bar-wrapper ">

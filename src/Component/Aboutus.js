@@ -1,12 +1,14 @@
 import React from "react";
+import './Aboutus.css';
 
-export default function AboutUs() {
+function Aboutus() {
   return (
+    <section className="about">
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-6 py-12">
       <div className="max-w-4xl text-center">
         {/* Heading */}
         <h1 className="text-4xl font-bold text-yellow-500 mb-6">
-          About <span className="italic text-gray-800">BookMyRoom</span>
+          About <span className="italic text-bold">BookMyRoom</span>
         </h1>
 
         {/* Subheading */}
@@ -53,8 +55,12 @@ export default function AboutUs() {
             <span className="font-semibold text-yellow-500">BookMyRoom</span> — 
             Your trusted partner in finding the perfect place to stay.
           </p>
+          
         </div>
       </div>
     </div>
+    </section>
   );
 }
+
+export default Aboutus;

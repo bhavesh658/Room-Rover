@@ -2,7 +2,7 @@ import './App.css';
 // import { DataBoard } from './Component/DataBoard';
 import Hero from './Component/Hero';
 // import 'bootstrap/dist/css/bootstrap.min.css'; 
-import Navbar from './Component/Navbar';
+//import Navbar from './Component/Navbar';
 import { LoginAsStudent } from './Screen/LoginAsStudent';
 import {
   BrowserRouter as Router,
