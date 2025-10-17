@@ -29,7 +29,7 @@ const Hero = () => {
 
               <li className="nav-item">
 
-                <Link className="nav-link active" to="#">About Us</Link>
+                <Link className="nav-link active" to="/about">About Us</Link>
 
               </li>
 
