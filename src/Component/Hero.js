@@ -21,8 +21,8 @@ const Hero = () => {
       <li className="nav-item"><Link className="nav-link text-white" to="">Properties</Link></li>
       <li className="nav-item"><Link className="nav-link text-white" to="/about">About Us</Link></li>
       <li className="nav-item"><Link className="nav-link text-white" to="#">Contact</Link></li>
-      <li className="nav-item"><Link className="nav-link text-white" to="/LoginAsStudent">Register</Link></li>
-      <li className="nav-item"><Link className="nav-link text-white" to="/LoginAsOwner">Login</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="/RegisterAsStudent">Register</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="/LoginAsStudent">Login</Link></li>
     </ul>
   </Navbar.Collapse>
 </Navbar>
