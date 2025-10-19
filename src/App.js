@@ -8,12 +8,13 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import { LoginAsOwner } from './Screen/LogInOwner';
+import LoginAsOwner from './Screen/LoginAsOwner';
 import Aboutus from './Component/Aboutus';
 import RegisterAsStudent from './Screen/RegisterAsStudent';
 import LoginAsStudent from './Screen/LoginAsStudent';
 import Properties from './Component/Properties';
-import PropertyList from './Component/PropertyList';
+//import PropertyList from './Component/PropertyList';
+import OwnerStudent from './Screen/OwnerStudent';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path='/LoginAsOwner' element={<LoginAsOwner />} />
           <Route exact path='/LoginAsStudent' element={<LoginAsStudent />} />
           <Route exact path='/about' element={<Aboutus />} />
+          <Route exact path='/OwnerStudent' element={<OwnerStudent />} />
 
 
         </Routes>

@@ -4,7 +4,7 @@ export default function Properties() {
     const properties = [
     {
       name: "Hostel",
-      img: "", // replace with your real image URL
+      img: "images/single-bed-rooms-rental-services.png", // replace with your real image URL
     },
     {
       name: "PG",

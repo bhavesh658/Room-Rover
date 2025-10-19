@@ -2,7 +2,7 @@ import '../Component/Hero.css';
 import backgroundImage from '../Screen/Rectangle.jpg';
 import { Link } from 'react-router-dom';
 
-export default function LoginAsStudent() {
+const LoginAsStudent = () => {
 
   const heroStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -41,3 +41,5 @@ export default function LoginAsStudent() {
     </>
   );
 }
+
+export default LoginAsStudent;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export const LoginAsOwner = () => {
+
+const LoginAsOwner = () => {
 
   return (
      <div className="container text-align-center justify-content-center w-50    border border-danger rounded p-5 mt-5 ">
@@ -24,3 +25,5 @@ export const LoginAsOwner = () => {
     </div>
   )
 }
+
+export default LoginAsOwner;
