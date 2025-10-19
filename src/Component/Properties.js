@@ -1,56 +1,48 @@
 import React from 'react'
 
 export default function Properties() {
+    const properties = [
+    {
+      name: "Hostel",
+      img: "", // replace with your real image URL
+    },
+    {
+      name: "PG",
+      img: "",
+    },
+    {
+      name: "Flat",
+      img: "",
+    },
+    {
+      name: "Mess",
+      img: "",
+    },
+  ];
+
     return (
-        <div><section class="options-section py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold text-dark">PROPERTIES</h2>
+        <section className="py-16 bg-white text-center">
+      <h2 className="text-3xl font-extrabold tracking-wide mb-12 text-gray-900">
+        PROPERTIES
+      </h2>
 
-            <div class="row g-4">
-                
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card option-card shadow-sm h-100 text-center">
-                        <div class="card-body p-4">
-                            <i class="fa-solid fa-flask fa-3x text-primary mb-3"></i>
-                            <h5 class="card-title fw-bold">Hostels</h5>
-                            <a href="/" class="btn btn-sm btn-outline-primary mt-2">Find Hostel</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card option-card shadow-sm h-100 text-center">
-                        <div class="card-body p-4">
-                            <i class="fa-solid fa-laptop-code fa-3x text-success mb-3"></i>
-                            <h5 class="card-title fw-bold">Rooms</h5>
-                           
-                            <a href="/" class="btn btn-sm btn-outline-success mt-2">Find Rooms</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card option-card shadow-sm h-100 text-center">
-                        <div class="card-body p-4">
-                            <i class="fa-solid fa-handshake fa-3x text-warning mb-3"></i>
-                            <h5 class="card-title fw-bold">Flates</h5>
-                            <a href="/" class="btn btn-sm btn-outline-warning mt-2">Find Flates</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="card option-card shadow-sm h-100 text-center">
-                        <div class="card-body p-4">
-                            <i class="fa-solid fa-calendar-days fa-3x text-danger mb-3"></i>
-                            <h5 class="card-title fw-bold">Mess</h5>
-                            <a href="/" class="btn btn-sm btn-outline-danger mt-2">Find Mess</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div> 
-        </div> 
-    </section></div>
-    )
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+        {properties.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center transform transition duration-300 hover:scale-105"
+          >
+            <img
+              src={item.img}
+              alt={item.name}
+              className="w-60 h-44 object-cover rounded-lg shadow-md"
+            />
+            <p className="mt-4 text-lg font-semibold text-gray-900">
+              {item.name}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+        )
 }

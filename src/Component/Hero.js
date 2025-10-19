@@ -8,7 +8,10 @@ const Hero = () => {
     backgroundImage: `url(${backgroundImage})`,
   };
 
+
+
   return (
+    <>
     <header className="hero-section" style={heroStyle}>
       <Navbar  expand="lg" bg="transparent" variant="light" style={{ position: "relative", zIndex: 10 }}>
   <Navbar.Brand className='justify-evenly ml-5 mt-2' style={{ fontWeight: 900, fontStyle: "italic", fontSize: "2rem", color: "white" }}>
@@ -70,7 +73,10 @@ const Hero = () => {
         {/* END SEARCH BAR */}
 
       </Container>
+      
     </header>
+    {/*  */}
+    </>
   );
 };
 

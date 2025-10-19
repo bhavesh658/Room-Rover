@@ -30,8 +30,8 @@ function App() {
 
         </Routes>
         {/* <DataBoard/> */}
-                  {<Properties/>}
-                  {/* {<PropertyList/>} */}
+        {<Properties/>}
+        {/* {<PropertyList/>} */}
 
 
       </div>
