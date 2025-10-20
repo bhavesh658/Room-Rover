@@ -2,6 +2,7 @@ import { Container, Navbar, InputGroup, Form, Button, Dropdown } from 'react-boo
 import backgroundImage from '../Screen/Rectangle.jpg';
 import { Link } from 'react-router-dom';
 import './Hero.css';
+import Properties from './Properties';
 
 const Hero = () => {
   const heroStyle = {
@@ -76,6 +77,7 @@ const Hero = () => {
       
     </header>
     {/*  */}
+    {<Properties/>}
     </>
   );
 };

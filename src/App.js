@@ -12,9 +12,8 @@ import LoginAsOwner from './Screen/LoginAsOwner';
 import Aboutus from './Component/Aboutus';
 import RegisterAsStudent from './Screen/RegisterAsStudent';
 import LoginAsStudent from './Screen/LoginAsStudent';
-import Properties from './Component/Properties';
-//import PropertyList from './Component/PropertyList';
 import OwnerStudent from './Screen/OwnerStudent';
+import RegisterAsOwner from './Screen/RegisterAsOwner';
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
           {/* <Route exact path='/' element={<Navbar/>}/> */}
           <Route exact path='/' element={<Hero />} />
           <Route exact path='/RegisterAsStudent' element={<RegisterAsStudent />} />
+          <Route exact path='/RegisterAsOwner' element={<RegisterAsOwner />} />
           <Route exact path='/LoginAsOwner' element={<LoginAsOwner />} />
           <Route exact path='/LoginAsStudent' element={<LoginAsStudent />} />
           <Route exact path='/about' element={<Aboutus />} />
@@ -31,9 +31,8 @@ function App() {
 
 
         </Routes>
-        {/* <DataBoard/> */}
-        {<Properties/>}
-        {/* {<PropertyList/>}  */}
+        {/* <DataBoard/> */
+        /* {<PropertyList/>}  */}
 
 
       </div>
