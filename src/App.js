@@ -33,7 +33,7 @@ function App() {
         </Routes>
         {/* <DataBoard/> */}
         {<Properties/>}
-        {/* {<PropertyList/>} */}
+        {/* {<PropertyList/>}  */}
 
 
       </div>
