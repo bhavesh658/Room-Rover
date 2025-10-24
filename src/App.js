@@ -2,7 +2,7 @@ import './App.css';
 // import { DataBoard } from './Component/DataBoard';
 import Hero from './Component/Hero';
 // import 'bootstrap/dist/css/bootstrap.min.css'; 
-import Navbar from './Component/Navbar';
+// import Navbar from './Component/Navbar';
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,11 +12,12 @@ import LoginAsOwner from './Screen/LoginAsOwner';
 import Aboutus from './Component/Aboutus';
 import RegisterAsStudent from './Screen/RegisterAsStudent';
 import LoginAsStudent from './Screen/LoginAsStudent';
-import OwnerStudent from './Screen/OwnerStudent';
 import RegisterAsOwner from './Screen/RegisterAsOwner';
 import Flatpage from './Component/Flatpage';
+import OwnerStudentLogin from './Screen/OwnerStudentLogin';
+import OwnerStudentRegister from './Screen/OwnerStudentRegister';
 
-function App() {
+function App() {  
   return (
     <Router>
       <div>
@@ -28,9 +29,12 @@ function App() {
           <Route exact path='/LoginAsOwner' element={<LoginAsOwner />} />
           <Route exact path='/LoginAsStudent' element={<LoginAsStudent />} />
           <Route exact path='/about' element={<Aboutus />} />
-          <Route exact path='/OwnerStudent' element={<OwnerStudent />} />
-          <Route path='/flat' element={<Flatpage/>} />
-          
+          <Route exact path='/OwnerStudentLogin' element={<OwnerStudentLogin />} />
+          <Route exact path='/OwnerStudentRegister' element={<OwnerStudentRegister />} />
+          <Route path="/Hero" element={<Hero />} />
+          <Route path="/Hero" element={<Hero />} />
+          <Route path='/flat' element={<Flatpage />} />
+
         </Routes>
         {/* <DataBoard/> */
         /* {<PropertyList/>}  */}

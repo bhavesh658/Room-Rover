@@ -1,20 +1,4 @@
 
-// import express from 'express';  
-// const router = express.Router();
-// router.post('/login', (req, res) =>
-// {
-
-//     res.send('Login route');
-// });
-
-// router.post('/register', (req, res) =>
-// {
-    
-//     res.send('Register route');
-// });
-// export default router;
-// routes/authRoutes.js
-// routes/authRoutes.js
 import express from 'express';
 import { body } from 'express-validator';
 import { register, login } from '../controllers/authController.js';
@@ -32,6 +16,8 @@ router.post(
   ],
   register
 );
+
+
 
 // Login route
 router.post(
