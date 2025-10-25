@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiMenu, FiX, FiSearch, FiUser } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +15,10 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-black font-semibold">
-          <li className="hover:text-white cursor-pointer transition">Home</li>
-          <li className="hover:text-white cursor-pointer transition">Properties</li>
-          <li className="hover:text-white cursor-pointer transition">Contact Us</li>
-          <li className="hover:text-white cursor-pointer transition">About Us</li>
+          <li className="hover:text-white cursor-pointer transition"><Link to='/' >Home</Link></li>
+          <li className="hover:text-white cursor-pointer transition"><Link to='/#prop'>Properties</Link></li>
+          <li className="hover:text-white cursor-pointer transition"><Link to='/contact'>Contact Us</Link></li>
+          <li className="hover:text-white cursor-pointer transition"><Link to='/about'>About Us</Link></li>
         </ul>
 
         {/* Icons */}

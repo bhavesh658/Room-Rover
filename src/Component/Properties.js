@@ -7,7 +7,7 @@ import messImg from '../images/mess.jpg';
 
 export default function Properties() {
     return (
-        <section className="py-16 bg-white text-center">
+        <section id='prop' className="py-16 bg-white text-center">
       <h2 className="text-3xl font-extrabold tracking-wide mb-12 text-gray-900">
         PROPERTIES
       </h2>

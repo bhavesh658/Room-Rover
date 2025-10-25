@@ -1,8 +1,11 @@
 import React from "react";
 import './Aboutus.css';
+import Navbar from "./Navbar";
 
 function Aboutus() {
   return (
+    <>
+    <Navbar/>
     <section className="about">
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-6 py-12">
       <div className="max-w-4xl text-center">
@@ -60,6 +63,7 @@ function Aboutus() {
       </div>
     </div>
     </section>
+    </>
   );
 }
 

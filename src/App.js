@@ -15,6 +15,7 @@ import LoginAsStudent from './Screen/LoginAsStudent';
 import OwnerStudent from './Screen/OwnerStudent';
 import RegisterAsOwner from './Screen/RegisterAsOwner';
 import Flatpage from './Component/Flatpage';
+import Contactus from './Component/Contactus';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route exact path='/LoginAsOwner' element={<LoginAsOwner />} />
           <Route exact path='/LoginAsStudent' element={<LoginAsStudent />} />
           <Route exact path='/about' element={<Aboutus />} />
+          <Route exact path='/contact' element={<Contactus/>}/>
           <Route exact path='/OwnerStudent' element={<OwnerStudent />} />
           <Route path='/flat' element={<Flatpage/>} />
           

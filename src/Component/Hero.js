@@ -1,8 +1,9 @@
-import { Container, Navbar, InputGroup, Form, Button, Dropdown } from 'react-bootstrap';
+import { Container, InputGroup, Form, Button, Dropdown } from 'react-bootstrap';
 import backgroundImage from '../Screen/Rectangle.jpg';
 import { Link } from 'react-router-dom';
 import './Hero.css';
 import Properties from './Properties';
+import Navbar from './Navbar';
 
 const Hero = () => {
   const heroStyle = {
@@ -14,7 +15,7 @@ const Hero = () => {
   return (
     <>
     <header className="hero-section" style={heroStyle}>
-      <Navbar  expand="lg" bg="transparent" variant="light" style={{ position: "relative", zIndex: 10 }}>
+      {/* <Navbar  expand="lg" bg="transparent" variant="light" style={{ position: "relative", zIndex: 10 }}>
   <Navbar.Brand className='justify-evenly ml-5 mt-2' style={{ fontWeight: 900, fontStyle: "italic", fontSize: "2rem", color: "white" }}>
     BookMyRoom
   </Navbar.Brand>
@@ -24,12 +25,13 @@ const Hero = () => {
       <li className="nav-item"><Link className="nav-link text-white" to="#">Home</Link></li>
       <li className="nav-item"><Link className="nav-link text-white" to="">Properties</Link></li>
       <li className="nav-item"><Link className="nav-link text-white" to="/about">About Us</Link></li>
-      <li className="nav-item"><Link className="nav-link text-white" to="">Contact</Link></li>
-      <li className="nav-item"><Link className="nav-link text-white" to="/OwnerStudent">Register</Link></li>
-      <li className="nav-item"><Link className="nav-link text-white" to="/OwnerStudent">Login</Link></li>
+      <li className="nav-item"><Link className="nav-link text-white" to="/contact">Contact Us</Link></li>
+      <li className="nav-item"><Link className="nav-link underline text-white" to="/OwnerStudent">Register</Link></li>
+      <li className="nav-item"><Link className="nav-link underline text-white" to="/OwnerStudent">Login</Link></li>
     </ul>
   </Navbar.Collapse>
-</Navbar>
+</Navbar> */}
+      <Navbar/>
 
       {/* CONTENT CENTERING: h-100, d-flex, flex-column, justify-content-center */}
       <Container className="h-100 d-flex flex-column justify-content-center align-items-center text-center">
