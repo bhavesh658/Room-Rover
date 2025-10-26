@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import backgroundImage from '../Screen/Rectangle.jpg';
 
-const OwnerStudent = () => {
+const OwnerStudentRegister = () => {
   const imagebg={
         backgroundImage: `url(${backgroundImage})`
     }
@@ -16,15 +16,15 @@ const OwnerStudent = () => {
     >
       {/* Owner Box */}
       <div className="w-64 h-32 flex items-center justify-center bg-yellow-400 text-black text-2xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
-        <Link to="/LoginAsOwner">Owner</Link>
+        <Link to="/RegisterAsOwner">Owner</Link>
       </div>
 
       {/* Student Box */}
       <div className="w-64 h-32 flex items-center justify-center bg-black text-white text-2xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
-        <Link to={'/LoginAsStudent'}>Student</Link>
+        <Link to={'/RegisterAsStudent'}>Student</Link>
       </div>
     </section>
   );
 };
 
-export default OwnerStudent;
+export default OwnerStudentRegister;
