@@ -41,9 +41,6 @@ function App() {
           <Route path='/flat' element={<Flatpage />} />
 
         </Routes>
-        {/* <DataBoard/> */
-        /* {<PropertyList/>}  */}
-
 
       </div>
 

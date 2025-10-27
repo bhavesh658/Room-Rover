@@ -3,6 +3,7 @@ import backgroundImage from '../Screen/Rectangle.jpg';
 import { Link } from 'react-router-dom';
 import './Hero.css';
 import Properties from './Properties';
+import RecommendedProperties from './RecommendedProperties';
 
 const Hero = () => {
   const heroStyle = {
@@ -79,6 +80,7 @@ const Hero = () => {
     </header>
     {/*  */}
     {<Properties/>}
+    {<RecommendedProperties/>}
     </>
   );
 };
