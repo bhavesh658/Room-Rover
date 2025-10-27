@@ -72,9 +72,16 @@ const LoginAsOwner = () => {
         email: formData.email,
         password: formData.password,
       });
+      // Inside handleSubmit (after successful login)
+if (res.data.user.role !== "owner") {
+  setMessage("❌ Access Denied! Please use the correct login page for your role.");
+  return;
+}
+
 
       // save token in local storage
       localStorage.setItem('token', res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
 
       setMessage('✅ Login successful! Redirecting...');
       console.log(res.data);
