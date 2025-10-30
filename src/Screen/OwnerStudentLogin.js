@@ -1,28 +1,30 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import backgroundImage from '../Screen/Rectangle.jpg';
+import backgroundImage from "../Screen/Rectangle.jpg";
 
 const OwnerStudentLogin = () => {
-  const imagebg={
-        backgroundImage: `url(${backgroundImage})`
-    }
+  const imagebg = {
+    backgroundImage: `url(${backgroundImage})`,
+  };
 
-    return (
-    
-
+  return (
     <section
       className="h-screen bg-cover bg-center flex flex-col items-center justify-center space-y-8"
       style={imagebg}
     >
       {/* Owner Box */}
-      <div className="w-64 h-32 flex items-center justify-center bg-yellow-400 text-black text-2xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
-        <Link to="/LoginAsOwner">Owner</Link>
-      </div>
+      <Link to="/LoginAsOwner">
+        <div className="w-64 h-32 flex items-center justify-center bg-yellow-400 text-black text-2xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+          Owner
+        </div>
+      </Link>
 
       {/* Student Box */}
-      <div className="w-64 h-32 flex items-center justify-center bg-black text-white text-2xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
-        <Link to={'/LoginAsStudent'}>Student</Link>
-      </div>
+      <Link to={"/LoginAsStudent"}>
+        <div className="w-64 h-32 flex items-center justify-center bg-black text-white text-2xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+          Student
+        </div>
+      </Link>
     </section>
   );
 };
