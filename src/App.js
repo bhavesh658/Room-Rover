@@ -17,6 +17,7 @@ import Flatpage from './Component/Flatpage';
 import Contactus from './Component/Contactus';
 import OwnerStudentLogin from './Screen/OwnerStudentLogin';
 import OwnerStudentRegister from './Screen/OwnerStudentRegister';
+import Footer from './Component/Footer';
 
 function App() {  
   return (
@@ -37,12 +38,12 @@ function App() {
           <Route exact path='/OwnerStudentLogin' element={<OwnerStudentLogin />} />
           <Route exact path='/OwnerStudentRegister' element={<OwnerStudentRegister />} />
           <Route path="/Hero" element={<Hero />} />
-          <Route path="/Hero" element={<Hero />} />
           <Route path='/flat' element={<Flatpage />} />
 
         </Routes>
 
       </div>
+      <Footer/>
 
     </Router>
   )
