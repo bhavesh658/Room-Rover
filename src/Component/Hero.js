@@ -13,22 +13,100 @@ const Hero = () => {
   return (
     <>
       <header className="hero-section" style={heroStyle}>
-        <Navbar expand="lg" bg="transparent" variant="light" style={{ position: 'relative', zIndex: 10 }}>
-          <Navbar.Brand className="justify-evenly ml-5 mt-2" style={{ fontWeight: 900, fontStyle: 'italic', fontSize: '2rem', color: 'white' }}>
+        <nav className="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        
+        {/* LOGO */}
+        <div className="flex items-center">
+          <Link
+            to="/"
+            className="text-2xl font-extrabold italic text-yellow-500 tracking-wide hover:text-yellow-600 transition duration-300"
+          >
             BookMyRoom
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav justify-content-evenly" />
-          <Navbar.Collapse id="basic-navbar-nav justify-content-evenly">
-            <ul className="mt-2 navbar-nav flex w-full justify-evenly items-center font-bold text-lg fw-bold fs-4">
-              <li className="nav-item"><Link className="nav-link text-white" to="#">Home</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="">Properties</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/about">About Us</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="">Contact</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/OwnerStudentRegister">Register</Link></li>
-              <li className="nav-item"><Link className="nav-link text-white" to="/OwnerStudentLogin">Login</Link></li>
-            </ul>
-          </Navbar.Collapse>
-        </Navbar>
+          </Link>
+        </div>
+
+        {/* NAV LINKS */}
+        <div className="hidden md:flex space-x-8">
+          <Link
+            to="/"
+            className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300"
+          >
+            Home
+          </Link>
+          <Link
+            to="/properties"
+            className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300"
+          >
+            Properties
+          </Link>
+          <Link
+            to="/about"
+            className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300"
+          >
+            About Us
+          </Link>
+          <Link
+            to="/contact"
+            className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300"
+          >
+            Contact
+          </Link>
+        </div>
+
+        {/* LOGIN & REGISTER BUTTONS */}
+        <div className="hidden md:flex items-center space-x-4">
+          <Link
+            to="/OwnerStudentLogin"
+            className="px-5 py-2 text-sm font-semibold border border-yellow-500 rounded-full text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300"
+          >
+            Login
+          </Link>
+          <Link
+            to="/OwnerStudentRegister"
+            className="px-5 py-2 text-sm font-semibold rounded-full bg-yellow-500 text-white hover:bg-yellow-600 transition duration-300"
+          >
+            Register
+          </Link>
+        </div>
+
+        {/* MOBILE MENU ICON */}
+        <div className="md:hidden flex items-center">
+          <button
+            id="menu-btn"
+            className="text-gray-800 focus:outline-none hover:text-yellow-500"
+            onClick={() =>
+              document.getElementById("mobile-menu").classList.toggle("hidden")
+            }
+          >
+            <i className="bi bi-list text-3xl"></i>
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE MENU */}
+      <div
+        id="mobile-menu"
+        className="hidden flex flex-col items-center bg-white py-4 space-y-4 shadow-md md:hidden"
+      >
+        <Link to="/" className="text-gray-800 hover:text-yellow-500">Home</Link>
+        <Link to="/properties" className="text-gray-800 hover:text-yellow-500">Properties</Link>
+        <Link to="/about" className="text-gray-800 hover:text-yellow-500">About Us</Link>
+        <Link to="/contact" className="text-gray-800 hover:text-yellow-500">Contact</Link>
+        <Link
+          to="/OwnerStudentLogin"
+          className="text-yellow-500 font-semibold border border-yellow-500 rounded-full px-4 py-1 hover:bg-yellow-500 hover:text-white transition"
+        >
+          Login
+        </Link>
+        <Link
+          to="/OwnerStudentRegister"
+          className="bg-yellow-500 text-white rounded-full px-4 py-1 hover:bg-yellow-600 transition"
+        >
+          Register
+        </Link>
+      </div>
+    </nav>
 
         <Container className="h-100 d-flex flex-column justify-content-center align-items-center text-center">
           <div className="text-warning hero-content mb-4">
