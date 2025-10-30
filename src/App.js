@@ -18,6 +18,11 @@ import Contactus from './Component/Contactus';
 import OwnerStudentLogin from './Screen/OwnerStudentLogin';
 import OwnerStudentRegister from './Screen/OwnerStudentRegister';
 
+import PropertyDetails from "./Component/PropertyDetails";
+import PropertyLists from "./Component/PropertyLists";
+import Footer from './Component/Footer';
+
+
 function App() {  
   return (
     <Router>
