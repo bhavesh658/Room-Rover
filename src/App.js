@@ -17,6 +17,9 @@ import Flatpage from './Component/Flatpage';
 import Contactus from './Component/Contactus';
 import OwnerStudentLogin from './Screen/OwnerStudentLogin';
 import OwnerStudentRegister from './Screen/OwnerStudentRegister';
+import PropertyDetails from "./Component/PropertyDetails";
+import PropertyLists from "./Component/PropertyLists";
+
 
 function App() {  
   return (
@@ -39,6 +42,8 @@ function App() {
           <Route path="/Hero" element={<Hero />} />
           <Route path="/Hero" element={<Hero />} />
           <Route path='/flat' element={<Flatpage />} />
+          <Route path="/properties/:type" element={<PropertyLists />} />
+          <Route path="/property/:id" element={<PropertyDetails />} />
 
         </Routes>
 

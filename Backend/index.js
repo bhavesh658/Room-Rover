@@ -29,6 +29,7 @@ import cors from 'cors';
 // Import routes (you might need to fix their syntax too)
 import authRoutes from './routes/authRoutes.js';
 import protectedRoutes from './routes/protectedRoutes.js';
+import propertyRoutes from './routes/Propertyroutes.js';
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api', protectedRoutes);
+app.use('/api/properties', propertyRoutes);
 
 app.get('/', (req, res) => res.send('API running'));
 
