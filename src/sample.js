@@ -1,0 +1,66 @@
+  const sampleData = [
+      {
+        name: "Sunshine Hostel",
+        location: "Indore",
+        rent: 4500,
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+        owner: "Rahul Mehta",
+        type: "hostel",
+      },
+      {
+        name: "Comfort PG",
+        location: "Bhopal",
+        rent: 5500,
+        image: "https://images.unsplash.com/photo-1560448075-bb485b067938",
+        owner: "Priya Sharma",
+        type: "pg",
+      },
+      {
+        name: "Elite Apartments",
+        location: "Ujjain",
+        rent: 12000,
+        image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae",
+        owner: "Amit Singh",
+        type: "flat",
+      },
+      {
+        name: "Home Mess Service",
+        location: "Gwalior",
+        rent: 2500,
+        image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        owner: "Sneha Patel",
+        type: "mess",
+      },
+      {
+    name: "Sunrise Hostel",
+    location: "Bhopal, MP",
+    rent: 4500,
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
+    type: "hostel",
+    owner: "Ravi Sharma"
+  },
+  {
+    name: "Comfort PG",
+    location: "Indore, MP",
+    rent: 6000,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    type: "pg",
+    owner: "Aman Verma"
+  },
+  {
+    name: "Royal Flat",
+    location: "Pune, Maharashtra",
+    rent: 12000,
+    image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae",
+    type: "flat",
+    owner: "Neha Gupta"
+  },
+  {
+    name: "Homely Mess",
+    location: "Jaipur, Rajasthan",
+    rent: 3500,
+    image: "https://images.unsplash.com/photo-1556910103-1c27aaf2b1d5",
+    type: "mess",
+    owner: "Sandeep Singh"
+  }
+    ];

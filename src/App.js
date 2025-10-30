@@ -42,7 +42,7 @@ function App() {
           <Route exact path='/OwnerStudentLogin' element={<OwnerStudentLogin />} />
           <Route exact path='/OwnerStudentRegister' element={<OwnerStudentRegister />} />
           <Route path="/Hero" element={<Hero />} />
-          <Route path='/flat' element={<Flatpage />} />
+          
           <Route path="/properties/:type" element={<PropertyLists />} />
           <Route path="/property/:id" element={<PropertyDetails />} />
 

@@ -14,6 +14,9 @@ const PropertyDetails = () => {
     } catch (err) {
       console.error("Error fetching property:", err);
     }
+    finally{
+      
+    }
   };
 
   useEffect(() => {

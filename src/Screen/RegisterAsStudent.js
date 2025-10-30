@@ -87,7 +87,7 @@
 
 //       // ✅ Save token & redirect
 //       localStorage.setItem('token', res.data.token);
-//       navigate('/LoginAsStudent'); 
+//       navigate('/LoginAsStudent');
 
 //     } catch (err) {
 //       console.error(err);
@@ -182,20 +182,20 @@
 //     </>
 //   );
 // }
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import '../Component/Hero.css';
-import backgroundImage from '../Screen/Rectangle.jpg';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../Component/Hero.css";
+import backgroundImage from "../Screen/Rectangle.jpg";
 
 export default function RegisterAsStudent() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',  
-    password: ''
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
   });
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const navigate = useNavigate(); // ✅ moved inside component
 
   const heroStyle = {
@@ -211,24 +211,26 @@ export default function RegisterAsStudent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // 👇 send data to backend
-      const res = await axios.post('http://localhost:5000/api/auth/register', {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        role: 'student',
-      });
+      delete formData.password;
 
-      setMessage('✅ Registered successfully!');
-      console.log(res.data);
+      // 👇 send data to backend
+      // const res = await axios.post("http://localhost:5000/api/auth/register", {
+      //   name: formData.name,
+      //   email: formData.email,
+      //   password: formData.password,
+      //   role: "student",
+      // });
+
+      setMessage("✅ Registered successfully!");
 
       // ✅ Save token & redirect
-      localStorage.setItem('token', res.data.token);
-      navigate('/LoginAsStudent'); 
-
+      localStorage.setItem("user", JSON.stringify(formData));
+      navigate("/");
     } catch (err) {
       console.error(err);
-      setMessage('❌ ' + (err.response?.data?.message || 'Registration failed'));
+      setMessage(
+        "❌ " + (err?.response?.data?.message || "Registration failed")
+      );
     }
   };
 
@@ -242,7 +244,9 @@ export default function RegisterAsStudent() {
           <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
             <div className="card p-4 shadow bg-dark text-white bg-opacity-75">
               <div className="card-body">
-                <h3 className="card-title text-center mb-4">Register as an Owner</h3>
+                <h3 className="card-title text-center mb-4">
+                  Register as a Student
+                </h3>
                 <form onSubmit={handleSubmit}>
                   <div className="row g-3 mb-3">
                     <div className="col-md-6">
@@ -290,9 +294,11 @@ export default function RegisterAsStudent() {
                       Register
                     </button>
                   </div>
-                  {message && <p className="text-center text-info">{message}</p>}
+                  {message && (
+                    <p className="text-center text-info">{message}</p>
+                  )}
                   <p className="text-center mt-3 mb-0 text-white-50">
-                    Already have an account?{' '}
+                    Already have an account?{" "}
                     <Link
                       to="/LoginAsOwner"
                       className="link-warning text-decoration-none"
