@@ -35,7 +35,7 @@ const Hero = () => {
             Home
           </Link>
           <Link
-            to="/properties"
+            to=""
             className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300"
           >
             Properties
