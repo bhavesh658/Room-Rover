@@ -3,8 +3,10 @@ import flatImg from "../images/flat.jpg";
 import Navbar from "./Navbar";
 import { FaWifi, FaTv, FaSnowflake, FaUtensils, FaParking, FaWater } from "react-icons/fa";
 import profile from "../images/profile.png";
+import { Link} from 'react-router-dom';
 
-export default function FlatPage() {
+
+export default function Flatpage() {
   const property = {
     price: "₹15,000",
     type: "Independent Flat for Rent",
@@ -59,7 +61,9 @@ export default function FlatPage() {
           </div>
 
           <button className="mt-6 md:mt-0 bg-yellow-400 text-black font-bold px-8 py-3 rounded-md shadow-md hover:bg-yellow-500 transition-all">
+          <Link to="/BookingPage">  
             Rent Now
+          </Link>
           </button>
         </div>
 

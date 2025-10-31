@@ -29,7 +29,7 @@ const Hero = () => {
       <header className="hero-section" style={heroStyle}>
         <nav className="bg-white shadow-md fixed w-full top-0 left-0 z-50">
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* NAV LINKS */}
+        {/* NAV LINKS
         <div className="hidden md:flex space-x-8">
           <Link
             to="/"
@@ -71,12 +71,19 @@ const Hero = () => {
               >
                 BookMyRoom
               </Link>
-            </div>
+            </div> 
 
             {/* NAV LINKS */}
             <div className="hidden md:flex space-x-8">
               <Link to="/" className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300">Home</Link>
-              <Link to="/properties" className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300">Properties</Link>
+              <Link to="#"
+              onClick={(e) => {
+                e.preventDefault();
+                const section = document.getElementById("prop");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }} className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300">Properties</Link>
               <Link to="/about" className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300">About Us</Link>
               <Link to="/contact" className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300">Contact</Link>
             </div>

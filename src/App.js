@@ -17,7 +17,7 @@ import Flatpage from './Component/Flatpage';
 import Contactus from './Component/Contactus';
 import OwnerStudentLogin from './Screen/OwnerStudentLogin';
 import OwnerStudentRegister from './Screen/OwnerStudentRegister';
-
+import BookingPage from "./Component/BookingPage";
 import PropertyDetails from "./Component/PropertyDetails";
 import PropertyLists from "./Component/PropertyLists";
 import Footer from './Component/Footer';
@@ -37,8 +37,7 @@ function App() {
           <Route exact path='/about' element={<Aboutus />} />
           <Route exact path='/contact' element={<Contactus/>}/>
           {/* <Route exact path='/OwnerStudent' element={<OwnerStudent />} /> */}
-          <Route path='/flat' element={<Flatpage/>} />
-          
+          <Route path='/BookingPage' element={<BookingPage/>} /> 
           <Route exact path='/OwnerStudentLogin' element={<OwnerStudentLogin />} />
           <Route exact path='/OwnerStudentRegister' element={<OwnerStudentRegister />} />
           <Route path="/Hero" element={<Hero />} />
