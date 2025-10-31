@@ -127,6 +127,30 @@ export default function RecommendedProperties() {
         
         </div>
         </Link>
+
+        <Link
+          to="/flat"
+          className="min-w-[270px] sm:min-w-[300px] md:min-w-[340px] flex-shrink-0 bg-white/80 backdrop-blur-md border border-gray-100 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] snap-center"
+        >
+          <img
+            src={flat}
+            alt="2 BHK Apartment"
+            className="rounded-t-2xl w-full h-56 object-cover"
+          />
+          <div className="p-5">
+            <h3 className="text-lg font-bold text-gray-900 truncate">
+              2 BHK Apartment, 2 Baths
+            </h3>
+            <p className="text-sm text-gray-600 line-clamp-2">
+              Divine Apartment, Sanchar Nagar Extension, Indore, M.P
+            </p>
+            <div className="flex justify-between items-center mt-3 text-sm">
+              <p className="text-gray-700 font-semibold">Posted by Owner</p>
+              <p className="text-green-600 font-medium">3 hrs ago</p>
+            </div>
+          </div>
+        </Link>
+
       </div>
     </section>
   );

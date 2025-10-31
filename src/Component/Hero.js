@@ -35,7 +35,14 @@ const Hero = () => {
             Home
           </Link>
           <Link
-            to=""
+             to="#"
+              onClick={(e) => {
+                e.preventDefault();
+                const section = document.getElementById("prop");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
             className="text-gray-800 hover:text-yellow-500 font-medium transition duration-300"
           >
             Properties
@@ -142,7 +149,7 @@ const Hero = () => {
         </Container>
       </header>
 
-      <Properties />
+      <Properties id="prop" />
       <RecommendedProperties />
     </>
   );
