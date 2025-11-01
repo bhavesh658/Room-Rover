@@ -1,3 +1,4 @@
+// models/Booking.js
 import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema({
@@ -11,13 +12,19 @@ const bookingSchema = new mongoose.Schema({
     ref: "Property",
     required: true,
   },
-  propertyName: String,
-  location: String,
-  rent: Number,
+  propertyName: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
   bookedAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-export default mongoose.model("Booking", bookingSchema);
+const Booking = mongoose.model("Booking", bookingSchema);
+export default Booking;

@@ -1,35 +1,13 @@
-// import express from 'express';
-// const app = express();
-// import bodyParser from 'body-parser';
-// import cors from 'cors';  
-// import 'dotenv/config';
-// const PORT = process.env.PORT || 8080;
-// import mongoDB from './Models/db.js';
-// import Authrouter from './Routes/Authrouter.js';
 
-// mongoDB();
-// app.use(bodyParser.json());
-// app.use(cors());
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
-
-
-// app.use('/auth',Authrouter)
-// app.listen(PORT, () => {
-//   console.log(`Example app listening on port ${PORT}`)
-// })
-// server.js
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-// Import routes (you might need to fix their syntax too)
 import authRoutes from './routes/authRoutes.js';
 import protectedRoutes from './routes/protectedRoutes.js';
 import propertyRoutes from './routes/Propertyroutes.js';
+import bookingRoutes from './routes/bookingRoutes.js';
 
 dotenv.config();
 
@@ -40,6 +18,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api', protectedRoutes);
 app.use('/api/properties', propertyRoutes);
+app.use('/api/bookings', bookingRoutes);
 
 app.get('/', (req, res) => res.send('API running'));
 

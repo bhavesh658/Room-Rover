@@ -7,6 +7,7 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState(null);
   const [message, setMessage] = useState("");
 
+  // ✅ Fetch property details
   const fetchProperty = async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/properties/details/${id}`);
@@ -20,14 +21,31 @@ const PropertyDetails = () => {
     fetchProperty();
   }, [id]);
 
+  // ✅ Handle booking
   const handleBook = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+      alert("Please log in first!");
+      return;
+    }
+
+    const bookingData = {
+      userId: user._id || user.id,
+      propertyId: property._id,
+      propertyName: property.name,
+      price: property.rent, // ✅ FIXED: use 'rent' instead of 'price'
+    };
+
+    console.log("📦 Sending booking:", bookingData);
+
     try {
-      const res = await axios.put(`http://localhost:5000/api/properties/book/${id}`);
-      setMessage("✅ Property booked successfully!");
-      setProperty(res.data.property);
+      const res = await axios.post("http://localhost:5000/api/bookings/book", bookingData);
+      alert(res.data.message);
+      setProperty({ ...property, booked: true }); // ✅ Update UI instantly
     } catch (err) {
-      console.error("Booking failed:", err);
-      setMessage("❌ Booking failed, try again later.");
+      console.error("Booking failed:", err.response?.data || err.message);
+      alert(err.response?.data?.message || "Booking failed!");
     }
   };
 
@@ -61,7 +79,9 @@ const PropertyDetails = () => {
 
         {message && <p className="mt-3 text-info">{message}</p>}
 
-        <Link to="/Hero" className="btn btn-dark mt-3 ms-3">← Back to Properties</Link>
+        <Link to="/Hero" className="btn btn-dark mt-3 ms-3">
+          ← Back to Properties
+        </Link>
       </div>
     </div>
   );

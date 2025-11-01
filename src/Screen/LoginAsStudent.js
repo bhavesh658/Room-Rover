@@ -34,6 +34,7 @@ const LoginAsStudent = () => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
 
+
       setMessage('✅ Login successful! Redirecting...');
       setTimeout(() => navigate('/Hero'), 1000);
     } catch (err) {
