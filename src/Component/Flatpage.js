@@ -70,17 +70,17 @@ export default function Flatpage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <img
               src={property.image1}
-              alt="Flat"
+              alt="Bedroom view"   // ✅ Clean alt (no “image” or “photo”)
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
             <img
               src={property.image2}
-              alt="Flat interior"
+              alt="Kitchen area"   // ✅ Descriptive alt
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
             <img
               src={property.image3}
-              alt="Living area"
+              alt="Living room"    // ✅ Clean alt, no redundant wording
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
           </div>
@@ -109,7 +109,7 @@ export default function Flatpage() {
             <div className="flex items-center gap-4">
               <img
                 src={property.owner.profilePic}
-                alt={property.owner.name}
+                alt={property.owner.name}  // ✅ Good: describes person shown
                 className="w-20 h-20 rounded-full object-cover border-4 border-yellow-400"
               />
               <div>

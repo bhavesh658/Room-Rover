@@ -7,12 +7,12 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState(null);
   const [message, setMessage] = useState("");
 
-  // ✅ Fetch property details (memoized to prevent re-creation on each render)
+  // ✅ Fetch property details (memoized)
   const fetchProperty = useCallback(async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/properties/details/${id}`);
       setProperty(res.data);
-      setMessage("Property details loaded successfully ✅"); // ✅ Use setMessage to avoid ESLint unused warning
+      setMessage("Property details loaded successfully ✅");
     } catch (err) {
       console.error("Error fetching property:", err);
       setMessage("Failed to load property details ❌");
@@ -27,7 +27,6 @@ const PropertyDetails = () => {
   // ✅ Handle booking
   const handleBook = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-
     if (!user) {
       alert("Please log in first!");
       return;
@@ -37,7 +36,7 @@ const PropertyDetails = () => {
       userId: user._id || user.id,
       propertyId: property._id,
       propertyName: property.name,
-      price: property.rent, // ✅ using 'rent'
+      price: property.rent,
     };
 
     console.log("📦 Sending booking:", bookingData);
@@ -72,7 +71,6 @@ const PropertyDetails = () => {
         <p><strong>👤 Owner:</strong> {property.owner}</p>
         <p><strong>🏠 Type:</strong> {property.type}</p>
 
-        {/* ✅ Booking Section */}
         <button
           onClick={handleBook}
           disabled={property.booked}
