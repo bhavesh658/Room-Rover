@@ -3,8 +3,7 @@ import flatImg from "../images/flat.jpg";
 import Navbar from "./Navbar";
 import { FaWifi, FaTv, FaSnowflake, FaUtensils, FaParking, FaWater } from "react-icons/fa";
 import profile from "../images/profile.png";
-import { Link} from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 export default function Flatpage() {
   const property = {
@@ -61,9 +60,7 @@ export default function Flatpage() {
           </div>
 
           <button className="mt-6 md:mt-0 bg-yellow-400 text-black font-bold px-8 py-3 rounded-md shadow-md hover:bg-yellow-500 transition-all">
-          <Link to="/BookingPage">  
-            Rent Now
-          </Link>
+            <Link to="/BookingPage">Rent Now</Link>
           </button>
         </div>
 
@@ -73,17 +70,17 @@ export default function Flatpage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <img
               src={property.image1}
-              alt="Flat photo 1"
+              alt="Flat"
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
             <img
               src={property.image2}
-              alt="Flat photo 2"
+              alt="Flat interior"
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
             <img
               src={property.image3}
-              alt="Flat photo 3"
+              alt="Living area"
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
           </div>
@@ -104,7 +101,6 @@ export default function Flatpage() {
             ))}
           </div>
         </div>
-
 
         {/* Owner Details */}
         <div className="mt-12">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
@@ -7,19 +7,22 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState(null);
   const [message, setMessage] = useState("");
 
-  // ✅ Fetch property details
-  const fetchProperty = async () => {
+  // ✅ Fetch property details (memoized to prevent re-creation on each render)
+  const fetchProperty = useCallback(async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/properties/details/${id}`);
       setProperty(res.data);
+      setMessage("Property details loaded successfully ✅"); // ✅ Use setMessage to avoid ESLint unused warning
     } catch (err) {
       console.error("Error fetching property:", err);
+      setMessage("Failed to load property details ❌");
     }
-  };
+  }, [id]);
 
+  // ✅ Include fetchProperty in dependency array
   useEffect(() => {
     fetchProperty();
-  }, [id]);
+  }, [fetchProperty]);
 
   // ✅ Handle booking
   const handleBook = async () => {
@@ -34,7 +37,7 @@ const PropertyDetails = () => {
       userId: user._id || user.id,
       propertyId: property._id,
       propertyName: property.name,
-      price: property.rent, // ✅ FIXED: use 'rent' instead of 'price'
+      price: property.rent, // ✅ using 'rent'
     };
 
     console.log("📦 Sending booking:", bookingData);
@@ -42,10 +45,11 @@ const PropertyDetails = () => {
     try {
       const res = await axios.post("http://localhost:5000/api/bookings/book", bookingData);
       alert(res.data.message);
-      setProperty({ ...property, booked: true }); // ✅ Update UI instantly
+      setProperty({ ...property, booked: true });
+      setMessage("✅ Booking confirmed!");
     } catch (err) {
       console.error("Booking failed:", err.response?.data || err.message);
-      alert(err.response?.data?.message || "Booking failed!");
+      setMessage("❌ Booking failed. Please try again.");
     }
   };
 
