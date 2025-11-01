@@ -7,24 +7,22 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState(null);
   const [message, setMessage] = useState("");
 
-  // ✅ Fetch property details (memoized)
+  // ✅ Memoized fetch function
   const fetchProperty = useCallback(async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/properties/details/${id}`);
       setProperty(res.data);
-      setMessage("Property details loaded successfully ✅");
+      setMessage("Property loaded successfully ✅");
     } catch (err) {
       console.error("Error fetching property:", err);
-      setMessage("Failed to load property details ❌");
+      setMessage("Failed to load property ❌");
     }
   }, [id]);
 
-  // ✅ Include fetchProperty in dependency array
   useEffect(() => {
     fetchProperty();
-  }, [fetchProperty]);
+  }, [fetchProperty]); // ✅ dependency fixed
 
-  // ✅ Handle booking
   const handleBook = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
@@ -39,22 +37,18 @@ const PropertyDetails = () => {
       price: property.rent,
     };
 
-    console.log("📦 Sending booking:", bookingData);
-
     try {
       const res = await axios.post("http://localhost:5000/api/bookings/book", bookingData);
       alert(res.data.message);
       setProperty({ ...property, booked: true });
       setMessage("✅ Booking confirmed!");
     } catch (err) {
-      console.error("Booking failed:", err.response?.data || err.message);
-      setMessage("❌ Booking failed. Please try again.");
+      console.error("Booking failed:", err);
+      setMessage("❌ Booking failed!");
     }
   };
 
-  if (!property) {
-    return <h2 className="text-center mt-5">Loading property details...</h2>;
-  }
+  if (!property) return <h2 className="text-center mt-5">Loading property details...</h2>;
 
   return (
     <div className="container py-5">
