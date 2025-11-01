@@ -7,21 +7,18 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState(null);
   const [message, setMessage] = useState("");
 
-  // ✅ Memoized fetch function
   const fetchProperty = useCallback(async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/properties/details/${id}`);
       setProperty(res.data);
-      setMessage("Property loaded successfully ✅");
     } catch (err) {
       console.error("Error fetching property:", err);
-      setMessage("Failed to load property ❌");
     }
   }, [id]);
 
   useEffect(() => {
     fetchProperty();
-  }, [fetchProperty]); // ✅ dependency fixed
+  }, [fetchProperty]);
 
   const handleBook = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -41,10 +38,9 @@ const PropertyDetails = () => {
       const res = await axios.post("http://localhost:5000/api/bookings/book", bookingData);
       alert(res.data.message);
       setProperty({ ...property, booked: true });
-      setMessage("✅ Booking confirmed!");
     } catch (err) {
       console.error("Booking failed:", err);
-      setMessage("❌ Booking failed!");
+      alert(err.response?.data?.message || "Booking failed!");
     }
   };
 
@@ -74,10 +70,7 @@ const PropertyDetails = () => {
         </button>
 
         {message && <p className="mt-3 text-info">{message}</p>}
-
-        <Link to="/Hero" className="btn btn-dark mt-3 ms-3">
-          ← Back to Properties
-        </Link>
+        <Link to="/Hero" className="btn btn-dark mt-3 ms-3">← Back to Properties</Link>
       </div>
     </div>
   );

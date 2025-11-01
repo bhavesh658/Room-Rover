@@ -1,3 +1,4 @@
+// models/Property.js
 import mongoose from "mongoose";
 
 const propertySchema = new mongoose.Schema({
@@ -7,7 +8,7 @@ const propertySchema = new mongoose.Schema({
   image: String,
   type: String,
   owner: String,
-  booked: { type: Boolean, default: false } // ✅ add this field
+  booked: { type: Boolean, default: false }
 });
 
 export default mongoose.model("Property", propertySchema);
