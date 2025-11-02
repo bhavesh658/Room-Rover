@@ -7,12 +7,13 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState(null);
   const [message, setMessage] = useState("");
 
+  // ✅ Fetch property with live booking status
   const fetchProperty = useCallback(async () => {
     try {
       const res = await axios.get(`http://localhost:5000/api/properties/details/${id}`);
       setProperty(res.data);
     } catch (err) {
-      console.error("Error fetching property:", err);
+      console.error("❌ Error fetching property:", err);
     }
   }, [id]);
 
@@ -20,6 +21,7 @@ const PropertyDetails = () => {
     fetchProperty();
   }, [fetchProperty]);
 
+  // ✅ Handle booking
   const handleBook = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
@@ -38,9 +40,23 @@ const PropertyDetails = () => {
       const res = await axios.post("http://localhost:5000/api/bookings/book", bookingData);
       alert(res.data.message);
       setProperty({ ...property, booked: true });
+      setMessage("✅ Property booked successfully!");
     } catch (err) {
-      console.error("Booking failed:", err);
+      console.error("❌ Booking failed:", err);
       alert(err.response?.data?.message || "Booking failed!");
+    }
+  };
+
+  // ✅ Handle unbooking
+  const handleUnbook = async () => {
+    try {
+      const res = await axios.delete(`http://localhost:5000/api/bookings/unbook/${property._id}`);
+      alert(res.data.message);
+      setProperty({ ...property, booked: false });
+      setMessage("✅ Property is now unbooked!");
+    } catch (err) {
+      console.error("❌ Unbooking failed:", err);
+      alert(err.response?.data?.message || "Unbooking failed!");
     }
   };
 
@@ -55,22 +71,28 @@ const PropertyDetails = () => {
           className="img-fluid rounded mb-4"
           style={{ height: "400px", objectFit: "cover" }}
         />
+
         <h2 className="text-warning fw-bold mb-3">{property.name}</h2>
         <p><strong>📍 Location:</strong> {property.location}</p>
         <p><strong>💰 Rent:</strong> ₹{property.rent}/month</p>
         <p><strong>👤 Owner:</strong> {property.owner}</p>
         <p><strong>🏠 Type:</strong> {property.type}</p>
 
-        <button
-          onClick={handleBook}
-          disabled={property.booked}
-          className={`btn ${property.booked ? "btn-secondary" : "btn-success"} mt-3`}
-        >
-          {property.booked ? "Already Booked" : "Book Now"}
-        </button>
+        {!property.booked ? (
+          <button onClick={handleBook} className="btn btn-success mt-3">
+            Book Now
+          </button>
+        ) : (
+          <button onClick={handleUnbook} className="btn btn-danger mt-3">
+            Unbook
+          </button>
+        )}
 
         {message && <p className="mt-3 text-info">{message}</p>}
-        <Link to="/Hero" className="btn btn-dark mt-3 ms-3">← Back to Properties</Link>
+
+        <Link to="/Hero" className="btn btn-dark mt-3 ms-3">
+          ← Back to Properties
+        </Link>
       </div>
     </div>
   );
