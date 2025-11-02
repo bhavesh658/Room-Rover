@@ -43,15 +43,15 @@
 // }
 
 // export default LoginAsOwner;
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import '../Component/Hero.css';
-import backgroundImage from '../Screen/Rectangle.jpg';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../Component/Hero.css";
+import backgroundImage from "../Screen/Rectangle.jpg";
 
 const LoginAsOwner = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const heroStyle = {
@@ -66,31 +66,31 @@ const LoginAsOwner = () => {
   // handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    delete formData.password;
     try {
       // send login request to backend
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
-        email: formData.email,
-        password: formData.password,
-      });
+      // const res = await axios.post('http://localhost:5000/api/auth/login', {
+      //   email: formData.email,
+      //   password: formData.password,
+      // });
       // Inside handleSubmit (after successful login)
-if (res.data.user.role !== "owner") {
-  setMessage("❌ Access Denied! Please use the correct login page for your role.");
-  return;
-}
-
+      // if (res.data.user.role !== "owner") {
+      //   setMessage("❌ Access Denied! Please use the correct login page for your role.");
+      //   return;
+      // }
 
       // save token in local storage
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      // localStorage.setItem('token', res.data.token);
+      localStorage.setItem("user", JSON.stringify(formData));
 
-      setMessage('✅ Login successful! Redirecting...');
-      console.log(res.data);
+      setMessage("✅ Login successful! Redirecting...");
 
       // redirect to owner dashboard after 1s
-      setTimeout(() => navigate('/Hero'), 1000);
+      navigate("/");
+      // setTimeout(() => , 1000);
     } catch (err) {
       console.error(err);
-      setMessage('❌ ' + (err.response?.data?.message || 'Login failed'));
+      setMessage("❌ " + (err.response?.data?.message || "Login failed"));
     }
   };
 
@@ -105,7 +105,9 @@ if (res.data.user.role !== "owner") {
             <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
               <div className="card p-4 shadow bg-dark text-white bg-opacity-75">
                 <div className="card-body">
-                  <h3 className="card-title text-center mb-4">Login as an Owner</h3>
+                  <h3 className="card-title text-center mb-4">
+                    Login as an Owner
+                  </h3>
                   <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                       <input
@@ -136,7 +138,7 @@ if (res.data.user.role !== "owner") {
                       <p className="text-center text-info">{message}</p>
                     )}
                     <p className="text-center mt-3 mb-0 text-white-50">
-                      Don’t have an account?{' '}
+                      Don’t have an account?{" "}
                       <Link
                         to="/RegisterAsOwner"
                         className="link-warning text-decoration-none"

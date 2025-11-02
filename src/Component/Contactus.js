@@ -5,7 +5,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 export default function ContactUs() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="min-h-screen bg-gray-50 text-gray-800 pt-28 px-6 md:px-20">
         {/* Hero Section */}
         <div className="text-center mb-12">
