@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Component/Hero.css';
 import backgroundImage from '../Screen/Rectangle.jpg';
+import API_URL from '../apiPoint';
 
 export default function RegisterAsOwner() {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ export default function RegisterAsOwner() {
     e.preventDefault();
     try {
       // 👇 send data to backend
-      const res = await axios.post('http://localhost:5000/api/auth/register', {
+      const res = await axios.post(API_URL+'/api/auth/register', {
         name: formData.name,
         email: formData.email,
         password: formData.password,
@@ -40,7 +41,9 @@ export default function RegisterAsOwner() {
 
       // ✅ Save token & redirect
       localStorage.setItem('token', res.data.token);
-      navigate('/LoginAsOwner'); 
+      localStorage.setItem('user', JSON.stringify(res.data.user));
+
+      navigate('/'); 
 
     } catch (err) {
       console.error(err);

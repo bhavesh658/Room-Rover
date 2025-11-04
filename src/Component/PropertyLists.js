@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../apiPoint";
 
 export default function PropertyLists() {
   const { type } = useParams(); // "hostel" | "pg" | "flat" | "mess"
@@ -9,7 +10,7 @@ export default function PropertyLists() {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/properties/type/${type}`);
+        const res = await axios.get(`${API_URL}/api/properties/type/${type}`);
         setProperties(res.data);
       } catch (err) {
         console.error("❌ Error fetching properties:", err);

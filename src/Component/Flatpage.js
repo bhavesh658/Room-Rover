@@ -1,7 +1,14 @@
 import React from "react";
 import flatImg from "../images/flat.jpg";
 import Navbar from "./Navbar";
-import { FaWifi, FaTv, FaSnowflake, FaUtensils, FaParking, FaWater } from "react-icons/fa";
+import {
+  FaWifi,
+  FaTv,
+  FaSnowflake,
+  FaUtensils,
+  FaParking,
+  FaWater,
+} from "react-icons/fa";
 import profile from "../images/profile.png";
 import { Link } from "react-router-dom";
 
@@ -34,7 +41,6 @@ export default function Flatpage() {
   return (
     <>
       {/* Navbar fixed on top */}
-      <Navbar />
 
       {/* Add top padding so content isn’t hidden under navbar */}
       <div className="min-h-screen bg-white text-gray-800 px-8 py-10 md:px-20 pt-32">
@@ -70,17 +76,17 @@ export default function Flatpage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <img
               src={property.image1}
-              alt="Bedroom view"   // ✅ Clean alt (no “image” or “photo”)
+              alt="Bedroom view" // ✅ Clean alt (no “image” or “photo”)
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
             <img
               src={property.image2}
-              alt="Kitchen area"   // ✅ Descriptive alt
+              alt="Kitchen area" // ✅ Descriptive alt
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
             <img
               src={property.image3}
-              alt="Living room"    // ✅ Clean alt, no redundant wording
+              alt="Living room" // ✅ Clean alt, no redundant wording
               className="rounded-xl object-cover w-full h-48 hover:scale-105 transition-transform duration-300 shadow-md"
             />
           </div>
@@ -95,7 +101,9 @@ export default function Flatpage() {
                 key={index}
                 className="flex flex-col items-center text-center bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all"
               >
-                <div className="text-yellow-500 text-3xl mb-2">{feature.icon}</div>
+                <div className="text-yellow-500 text-3xl mb-2">
+                  {feature.icon}
+                </div>
                 <p className="text-gray-700 font-medium">{feature.text}</p>
               </div>
             ))}
@@ -109,7 +117,7 @@ export default function Flatpage() {
             <div className="flex items-center gap-4">
               <img
                 src={property.owner.profilePic}
-                alt={property.owner.name}  // ✅ Good: describes person shown
+                alt={property.owner.name} // ✅ Good: describes person shown
                 className="w-20 h-20 rounded-full object-cover border-4 border-yellow-400"
               />
               <div>

@@ -1,16 +1,19 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../apiPoint";
+import { useNavigate } from "react-router-dom";
 
 const PropertyDetails = () => {
   const { id } = useParams();
   const [property, setProperty] = useState(null);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   // ✅ Fetch property with live booking status
   const fetchProperty = useCallback(async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/properties/details/${id}`);
+      const res = await axios.get(`${API_URL}/api/properties/details/${id}`);
       setProperty(res.data);
     } catch (err) {
       console.error("❌ Error fetching property:", err);
@@ -37,10 +40,12 @@ const PropertyDetails = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/api/bookings/book", bookingData);
+      const res = await axios.post(API_URL + "/api/bookings/book", bookingData);
       alert(res.data.message);
       setProperty({ ...property, booked: true });
+
       setMessage("✅ Property booked successfully!");
+      navigate("/BookingPage");
     } catch (err) {
       console.error("❌ Booking failed:", err);
       alert(err.response?.data?.message || "Booking failed!");
@@ -50,7 +55,9 @@ const PropertyDetails = () => {
   // ✅ Handle unbooking
   const handleUnbook = async () => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/bookings/unbook/${property._id}`);
+      const res = await axios.delete(
+        `${API_URL}/api/bookings/unbook/${property._id}`
+      );
       alert(res.data.message);
       setProperty({ ...property, booked: false });
       setMessage("✅ Property is now unbooked!");
@@ -60,7 +67,8 @@ const PropertyDetails = () => {
     }
   };
 
-  if (!property) return <h2 className="text-center mt-5">Loading property details...</h2>;
+  if (!property)
+    return <h2 className="text-center mt-5">Loading property details...</h2>;
 
   return (
     <div className="container py-5">
@@ -73,10 +81,18 @@ const PropertyDetails = () => {
         />
 
         <h2 className="text-warning fw-bold mb-3">{property.name}</h2>
-        <p><strong>📍 Location:</strong> {property.location}</p>
-        <p><strong>💰 Rent:</strong> ₹{property.rent}/month</p>
-        <p><strong>👤 Owner:</strong> {property.owner}</p>
-        <p><strong>🏠 Type:</strong> {property.type}</p>
+        <p>
+          <strong>📍 Location:</strong> {property.location}
+        </p>
+        <p>
+          <strong>💰 Rent:</strong> ₹{property.rent}/month
+        </p>
+        <p>
+          <strong>👤 Owner:</strong> {property.owner}
+        </p>
+        <p>
+          <strong>🏠 Type:</strong> {property.type}
+        </p>
 
         {!property.booked ? (
           <button onClick={handleBook} className="btn btn-success mt-3">

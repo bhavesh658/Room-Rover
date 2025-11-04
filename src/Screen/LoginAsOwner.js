@@ -48,6 +48,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Component/Hero.css';
 import backgroundImage from '../Screen/Rectangle.jpg';
+import API_URL from '../apiPoint';
 
 const LoginAsOwner = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -68,7 +69,7 @@ const LoginAsOwner = () => {
     e.preventDefault();
     try {
       // send login request to backend
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await axios.post(API_URL+'/api/auth/login', {
         email: formData.email,
         password: formData.password,
       });
