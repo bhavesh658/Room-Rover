@@ -12,3 +12,7 @@ const mongoDB = async () => {
 };
 
 export default mongoDB;
+// PORT=5000
+// MONGO_URI=mongodb+srv://yadavbhavesh:12345@rooms.xeajzyr.mongodb.net/Rooms-Data?retryWrites=true&w=majority&appName=Rooms
+// JWT_SECRET=your_jwt_secret_here
+// JWT_EXPIRES_IN=7d
