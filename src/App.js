@@ -19,6 +19,8 @@ import PropertyLists from "./Component/PropertyLists";
 import Footer from "./Component/Footer";
 import Navbar from "./Component/Navbar";
 import { useLocation } from "react-router-dom";
+import OwnerHome from './Component/OwnerHome';
+import UploadProperty from './Component/UploadProperty';
 
 function App() {
   const location = useLocation();
@@ -26,11 +28,11 @@ function App() {
     <div>
       {
         location.pathname !== "/LoginAsOwner" &&
-        location.pathname !== "/LoginAsStudent" &&
-        location.pathname !== "/RegisterAsOwner" &&
-        location.pathname !== "/RegisterAsStudent" &&
-        location.pathname !== "/OwnerStudentLogin" &&
-        location.pathname !== "/OwnerStudentRegister" ? (
+          location.pathname !== "/LoginAsStudent" &&
+          location.pathname !== "/RegisterAsOwner" &&
+          location.pathname !== "/RegisterAsStudent" &&
+          location.pathname !== "/OwnerStudentLogin" &&
+          location.pathname !== "/OwnerStudentRegister" ? (
           <Navbar />
         ) : null
 
@@ -39,11 +41,7 @@ function App() {
       <Routes>
         {/*  */}
         <Route exact path="/" element={<Hero />} />
-        <Route
-          exact
-          path="/RegisterAsStudent"
-          element={<RegisterAsStudent />}
-        />
+        <Route exactpath="/RegisterAsStudent"element={<RegisterAsStudent />}/>
         <Route exact path="/RegisterAsOwner" element={<RegisterAsOwner />} />
         <Route exact path="/LoginAsOwner" element={<LoginAsOwner />} />
         <Route exact path="/LoginAsStudent" element={<LoginAsStudent />} />
@@ -51,22 +49,16 @@ function App() {
         <Route exact path="/contact" element={<Contactus />} />
         {/* <Route exact path='/OwnerStudent' element={<OwnerStudent />} /> */}
         <Route path="/BookingPage" element={<BookingPage />} />
-        <Route
-          exact
-          path="/OwnerStudentLogin"
-          element={<OwnerStudentLogin />}
-        />
-        <Route
-          exact
-          path="/OwnerStudentRegister"
-          element={<OwnerStudentRegister />}
-        />
+        <Route exact path="/OwnerStudentLogin"element={<OwnerStudentLogin />}/>
+        <Route exact path="/OwnerStudentRegister" element={<OwnerStudentRegister />}/>
         <Route path="/Hero" element={<Hero />} />
         <Route path="/flat" element={<Flatpage />} />
         <Route path="/properties/:type" element={<PropertyLists />} />
         <Route path="/property/:id" element={<PropertyDetails />} />
+        <Route path="/owner/home" element={<OwnerHome />} />
+        <Route path="/owner/upload" element={<UploadProperty />} />
       </Routes>
-      <Footer />
+      {/* <Footer />   */}
     </div>
   );
 }

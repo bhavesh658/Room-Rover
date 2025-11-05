@@ -8,6 +8,16 @@ const propertySchema = new mongoose.Schema({
   image: String,
   type: String,
   owner: String,
+   ownerId: {                  // reference to owner user
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: false
+  },
+  bookedBy: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: "User", // Assuming User model exists for students
+  default: null,
+},
   booked: { type: Boolean, default: false }
 });
 
