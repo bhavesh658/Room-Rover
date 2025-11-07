@@ -22,7 +22,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 function App() {
   const location = useLocation();
 
-  // Hide Navbar on these routes
+  // 🧭 Hide Navbar on these routes
   const hideNavbarRoutes = [
     "/LoginAsOwner",
     "/LoginAsStudent",
@@ -32,22 +32,24 @@ function App() {
     "/OwnerStudentRegister",
   ];
 
-  // Hide Footer on these routes
+  // 🧭 Hide Footer on these routes
   const hideFooterRoutes = [
-    "/LoginAsOwner",
-    "/LoginAsStudent",
-    "/RegisterAsOwner",
-    "/RegisterAsStudent",
-    "/OwnerStudentLogin",
-    "/OwnerStudentRegister",
+    ...hideNavbarRoutes,
     "/owner/home",
     "/owner/upload",
   ];
 
+  // ✅ Detect if Navbar is visible
+  const isNavbarVisible = !hideNavbarRoutes.includes(location.pathname);
+
   return (
-    <div>
-      {/* ✅ Show Navbar only if not hidden */}
-      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+    <div
+      style={{
+        paddingTop: isNavbarVisible ? "80px" : "0px", // ✅ Apply padding only when Navbar is visible
+      }}
+    >
+      {/* ✅ Conditionally show Navbar */}
+      {isNavbarVisible && <Navbar />}
 
       <Routes>
         {/* Public Routes */}
@@ -76,7 +78,7 @@ function App() {
         <Route path="/BookingPage" element={<BookingPage />} />
       </Routes>
 
-      {/* ✅ Show Footer only if not hidden */}
+      {/* ✅ Conditionally show Footer */}
       {!hideFooterRoutes.includes(location.pathname) && <Footer />}
     </div>
   );

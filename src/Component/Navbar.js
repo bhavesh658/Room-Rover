@@ -1,25 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX, FiSearch, FiUser } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // ✅ Load user from localStorage
+  // ✅ Hide Navbar on login/register pages
+  const hideNavbarRoutes = [
+    "/LoginAsOwner",
+    "/LoginAsStudent",
+    "/RegisterAsOwner",
+    "/RegisterAsStudent",
+    "/OwnerStudentLogin",
+    "/OwnerStudentRegister",
+  ];
+
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
+
+  // ✅ Load user from localStorage whenever route changes
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
-  }, []);
+  }, [location.pathname]);
 
   // ✅ Logout
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
-    navigate("/OwnerStudentLogin");
+
+    // 👇 Redirect to login page (where Navbar is hidden)
+    navigate("/OwnerStudentLogin", { replace: true });
   };
+
+  if (shouldHideNavbar) return null; // 🚫 Hide Navbar on login/register
 
   return (
     <nav className="bg-yellow-300 shadow-md fixed w-full top-0 left-0 z-50">
@@ -33,7 +50,6 @@ const Navbar = () => {
         <ul className="hidden md:flex space-x-8 text-black font-semibold items-center">
           {user && user.role === "owner" ? (
             <>
-              {/* 🧩 OWNER MENU */}
               <li>
                 <Link to="/owner/home" className="hover:text-white transition">
                   Dashboard
@@ -44,15 +60,12 @@ const Navbar = () => {
                   Upload Property
                 </Link>
               </li>
-
-              {/* 👋 Show Owner Name */}
               <li className="flex items-center space-x-2 text-gray-800">
                 <FiUser className="text-lg" />
                 <span>
                   Hi, <strong>{user.name}</strong> ({user.role})
                 </span>
               </li>
-
               <li>
                 <button
                   onClick={handleLogout}
@@ -64,7 +77,6 @@ const Navbar = () => {
             </>
           ) : user && user.role === "student" ? (
             <>
-              {/* 🧩 STUDENT MENU */}
               <li>
                 <Link to="/" className="hover:text-white transition">
                   Home
@@ -85,15 +97,12 @@ const Navbar = () => {
                   About Us
                 </Link>
               </li>
-
-              {/* 👋 Show Student Name */}
               <li className="flex items-center space-x-2 text-gray-800">
                 <FiUser className="text-lg" />
                 <span>
                   Hi, <strong>{user.name}</strong> ({user.role})
                 </span>
               </li>
-
               <li>
                 <button
                   onClick={handleLogout}
@@ -105,7 +114,6 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              {/* 🧩 LOGGED OUT MENU */}
               <li>
                 <Link to="/" className="hover:text-white transition">
                   Home
@@ -141,7 +149,7 @@ const Navbar = () => {
           )}
         </ul>
 
-        {/* Icons (Desktop) */}
+        {/* Desktop Icons */}
         <div className="hidden md:flex items-center space-x-4 text-black text-xl">
           <FiSearch className="cursor-pointer hover:text-white transition" />
         </div>

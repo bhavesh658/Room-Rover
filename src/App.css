@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 } */
+/* 🛠️ Prevent content from hiding behind fixed Navbar
+body {
+  padding-top: 80px; /* Adjust this if your Navbar is taller */
+ 
